@@ -5,6 +5,13 @@ output:
     keep_md: true
 ---
 
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+knitr::opts_chunk$set( fig.path = "figure/")
+```
+
 ## Loading and preprocessing the data
 
 First the activity file will need to be read in.  A summary of the resulting dataframe 
