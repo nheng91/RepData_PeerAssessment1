@@ -139,3 +139,4 @@ interval_activity$weekday <- as.factor(interval_activity$weekday)
 
 ggplot(interval_activity, aes(x = interval, y = mean_steps)) + geom_line() + facet_wrap(interval_activity$weekday, nrow = 2)
 ```
+It looks like there is definitely a difference in activity during weekends vs weekdays.
