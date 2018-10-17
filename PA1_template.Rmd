@@ -9,7 +9,7 @@ output:
 
 knitr::opts_chunk$set(echo = TRUE)
 
-knitr::opts_chunk$set( fig.path = "figure/")
+knitr::opts_chunk$set(fig.path = "figure/")
 ```
 
 ## Loading and preprocessing the data
@@ -28,11 +28,12 @@ It might be helpful to add a time column to the data frame that contains the hou
 minutes, and seconds in a familiar format.  You may need to install the **stringr**,
 **lubridate**, or **chron** packages first.
 
-```{r, results="hide"}
+```{r results='hide', message=FALSE, warning=FALSE}
 library(stringr)
 library(lubridate)
 library(chron)
 ```
+
 ```{r}
 activity$time <- str_pad(activity$interval, 4, pad = "0")
 activity$time <- times(paste( substr(activity$time, start = 1, stop = 2), 
@@ -46,9 +47,10 @@ In order to get the mean total number of steps taken per day it may be easier to
 manipulate the **activity** data frame from earlier.  I prefer to do this with
 the **dplyr** package.
 
-```{r,results="hide"}
+```{r results='hide', message=FALSE, warning=FALSE}
 library(dplyr)
 ```
+
 ```{r}
 daily_activity <- activity %>% group_by(date) %>% summarize(daily_steps = sum(steps)) %>%
     filter(!is.na(daily_steps))
